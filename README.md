@@ -41,6 +41,7 @@ Things you may want to cover:
 |furigana_first|string|null: false, unique: true|
 |birthday|integer|null: false, unique: true|
 
+
 ### Association
 -has_many :comments
 -has_many :items
@@ -50,14 +51,16 @@ Things you may want to cover:
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, unique: true|
 |image|string|null: false, unique: true|
-|price|integer|null: false, unique: true|
+|name|string|null: false, unique: true|
 |explanation|text|null: false, unique: true|
-|comment_id|integer|null: false, foreign_key: true|
-|Delivery_fee|string|null: false, unique: true|
-|days|string|null: false, add_index: true|
+|category|string|null: false, add_index: true|
+|Commodity_condition|string|null: false, unique: true|
+|Shipping_charges|integer|null: false, unique: true|
 |region|string|null: false, unique: true|
+|Shipping_days|integer|null: false, unique: true|
+|price|integer|null: false, unique: true|
+|comment_id|integer|null: false, foreign_key: true|
 |user_id|integer|null: false, unique: true|
 
 
@@ -94,13 +97,13 @@ Things you may want to cover:
 ## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|e-mail|string|null: false, unique: true|
-|nickname|string|null: false, add_index: true|
-|password|string|null: false, unique: true|
-|user_id|integer|null: false, unique: true|
 |post_code|integer|null: false, unique: true|
 |prefectures|string|null: false, add_index: true|
 |municipalities|string|null: false, unique: true|
+|house_number|string|null: false, unique: true|
+|building|string|null: false, add_index: true|
+|phone_number|string|null: false, unique: true|
+|user_id|integer|null: false, unique: true|
 
 ## Association
 -belongs_to :item
