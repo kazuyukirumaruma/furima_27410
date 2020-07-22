@@ -29,6 +29,9 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, add_index: true|
+|e-mail|string|null: false, unique: true|
+|nickname|string|null: false, add_index: true|
+|password|string|null: false, unique: true|
 |lastname|string|null: false, add_index: true|
 |firstname|string|null: false, unique: true|
 |residence|string|null: false, add_index: true|
@@ -40,7 +43,6 @@ Things you may want to cover:
 -has_many :comments
 -has_many :items
 -has_many :cards
--has_many :addresses
 
 
 ## itemsテーブル
@@ -51,11 +53,17 @@ Things you may want to cover:
 |price|integer|null: false, unique: true|
 |explanation|text|null: false, unique: true|
 |comment_id|integer|null: false, foreign_key: true|
+|Delivery_fee|string|null: false, unique: true|
+|days|string|null: false, add_index: true|
+|region|string|null: false, unique: true|
+|item_id|integer|null: false, unique: true|
 
 
 ## Association
 -belongs_to :user
 -has_many :items, through: :items_comments
+-has_many :addresses
+
 
 
 ## commentsテーブル
@@ -88,17 +96,10 @@ Things you may want to cover:
 |nickname|string|null: false, add_index: true|
 |password|string|null: false, unique: true|
 |user_id|integer|null: false, unique: true|
-
-## Association
--belongs_to :user
-
-## deliveriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|Delivery_fee|string|null: false, unique: true|
-|days|string|null: false, add_index: true|
-|region|string|null: false, unique: true|
-|item_id|integer|null: false, unique: true|
+|post_code|integer|null: false, unique: true|
+|prefectures|string|null: false, add_index: true|
+|municipalities|string|null: false, unique: true|
 
 ## Association
 -belongs_to :item
+
