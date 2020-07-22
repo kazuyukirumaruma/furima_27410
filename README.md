@@ -34,6 +34,8 @@ Things you may want to cover:
 |password|string|null: false, unique: true|
 |lastname|string|null: false, add_index: true|
 |firstname|string|null: false, unique: true|
+|katakana_lastname|string|null: false, add_index: true|
+|katakana_firstname|string|null: false, unique: true|
 |residence|string|null: false, add_index: true|
 |furigana_last|string|null: false, unique: true|
 |furigana_first|string|null: false, unique: true|
@@ -56,7 +58,7 @@ Things you may want to cover:
 |Delivery_fee|string|null: false, unique: true|
 |days|string|null: false, add_index: true|
 |region|string|null: false, unique: true|
-|item_id|integer|null: false, unique: true|
+|user_id|integer|null: false, unique: true|
 
 
 ## Association
