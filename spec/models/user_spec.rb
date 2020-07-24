@@ -76,31 +76,31 @@ describe User do
     it "パスワードを二回入力しない場合 " do
       user = build(:user, password: "000000", password_confirmation: "")
       user.valid?
-      expect(user.errors[:password]).to include("is too short (minimum is 6 characters)")
+      expect(user.errors[:password_confirmation]).to include("doesn't match Password")
     end
 
     it "メールアドレスは@を含む必要があること" do
       @user.email = "kkkkkkkkkk"
       @user.valid?
-      expect(@user.errors[:email]).to include("email require @")
+      expect(@user.errors[:email]).to include("is invalid")
     end
 
     it "パスワードは半角英数字混合であること" do
       @user.password = "kkkkkkkkkk"
       @user.valid?
-      expect(@user.errors[:password]).to include("password ")
+      expect(@user.errors[:password]).to include("is invalid")
     end
 
     it "ユーザー本名は全角（漢字・ひらがな・カタカナ）で入力させること" do
       @user.firstname && lastname = "kkkkkkkkkkkk"
       @user.valid?
-      expect(@user.errors[:firstname && lastname]).to include("password ")
+      expect(@user.errors[:firstname && :lastname]).to include("is invalid")
     end
 
     it "ユーザー本名のフリガナは全角（カタカナ）で入力させること" do
       @user.kana_first && kana_last = "kkkkkkkkkkkk"
       @user.valid?
-      expect(@user.errors[:kana_first && kana_last]).to include("password ")
+      expect(@user.errors[:kana_first && :kana_last]).to include("is invalid")
     end
 
 

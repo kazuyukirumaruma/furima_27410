@@ -7,15 +7,15 @@ class User < ApplicationRecord
 
   VALID_PASSWORD = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{6,100}+\z/i
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  VALID_NICKNAME = /\A[a-zA-Z]+\z/
+  VALID_NICK_NAME = /\A[a-zA-Z]+\z/
   VALID_NAME = /\A[ぁ-んァ-ン一-龥]/
   VALID_KANA_NAME = /\A[ァ-ヶー－]+\z/
 
-  with_options presence: true do |s|
+  with_options presence: true do |s| 
 
     s.validates :password, length: {minimum: 6}, format: { with: VALID_PASSWORD }, confirmation: true
-    s.validates :email, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }}
-    s.validates :nickname, format: { with: VALID_NICKNAME }, uniqueness: { case_sensitive: false }}
+    s.validates :email, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
+    s.validates :nickname, format: { with: VALID_NICK_NAME }, uniqueness: { case_sensitive: false }
     s.validates :firstname, format: { with: VALID_NAME }
     s.validates :lastname, format: { with: VALID_NAME }
     s.validates :kana_first, format: { with: VALID_KANA_NAME }
