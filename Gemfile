@@ -64,4 +64,9 @@ gem 'devise'
 gem 'rspec-rails', '~> 4.0.0.beta2'
 gem 'pry-rails'
 
+	
+group :production do
+  gem 'rails_12factor'
+end
+
 
