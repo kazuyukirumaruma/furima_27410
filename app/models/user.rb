@@ -13,13 +13,13 @@ class User < ApplicationRecord
 
   with_options presence: true do |s| 
 
-    s.validates :password, length: {minimum: 6}, format: { with: VALID_PASSWORD }, confirmation: true
-    s.validates :email, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
-    s.validates :nickname, format: { with: VALID_NICK_NAME }, uniqueness: { case_sensitive: false }
-    s.validates :firstname, format: { with: VALID_NAME }
-    s.validates :lastname, format: { with: VALID_NAME }
-    s.validates :kana_first, format: { with: VALID_KANA_NAME }
-    s.validates :kana_last, format: { with: VALID_KANA_NAME }
+    s.validates :password,      length: {minimum: 6}, format: { with: VALID_PASSWORD }, confirmation: true
+    s.validates :email,         format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
+    s.validates :nickname,      format: { with: VALID_NICK_NAME }, uniqueness: { case_sensitive: false }
+    s.validates :firstname,     format: { with: VALID_NAME }
+    s.validates :lastname,      format: { with: VALID_NAME }
+    s.validates :kana_first,    format: { with: VALID_KANA_NAME }
+    s.validates :kana_last,     format: { with: VALID_KANA_NAME }
     s.validates :birthday
   end
 end
