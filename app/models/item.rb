@@ -3,7 +3,6 @@ class Item < ApplicationRecord
   belongs_to :user
   with_options presence: true do |s| 
 
-    s.validates :image
     s.validates :name
     s.validates :explanation
     s.validates :category_id,                     numericality: {only_integer: true, other_than: 1}

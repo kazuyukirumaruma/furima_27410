@@ -1,6 +1,9 @@
 class ItemsController < ApplicationController
+  # before_action :move_to_index, except: [:index]
+
   def index
-    @items = Item.all
+    @items = Item.all.order("created_at DESC")
+    # includes(:user).order("created_at DESC")
   end
 
   def new
@@ -9,6 +12,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    binding.pry
     if @item.save
       redirect_to root_path
     else
@@ -29,8 +33,13 @@ class ItemsController < ApplicationController
       :region_id, 
       :shipping_days_id, 
       :price
-    )
+    ).merge(user_id:current_user.id)
   end
 
+  # def move_to_index
+  #   unless user_sign_in?
+  #     redirect_to action: :index
+  #   end
+  # end
 end
 
