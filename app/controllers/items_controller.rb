@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  # before_action :move_to_index, except: [:index]
+  before_action :set_item, only: [:show]
 
   def index
     @items = Item.all.order("created_at DESC")
@@ -19,6 +19,9 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+  end
+
   private
 
   def item_params
@@ -28,11 +31,15 @@ class ItemsController < ApplicationController
       :explanation, 
       :category_id, 
       :commodity_condition_id, 
-      :shipping_charges_id, 
+      :shipping_charge_id, 
       :region_id, 
-      :shipping_days_id, 
+      :shipping_day_id, 
       :price
     ).merge(user_id:current_user.id)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 
   # def move_to_index
