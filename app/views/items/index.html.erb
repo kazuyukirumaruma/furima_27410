@@ -130,7 +130,6 @@
       <li class='list'>
         <%= link_to "#" do %>
         <div class='item-img-content'>
-          <%# <%= image_tag "item-sample.png", class: "item-img" %> 
           <% @items.each do |item| %>
             <p><%= image_tag item.image, class: "item-img" %></p>
           <% end %>
