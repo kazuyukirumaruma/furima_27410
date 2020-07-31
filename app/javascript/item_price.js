@@ -1,6 +1,6 @@
 $(function(){
-  $("#item_price").on('keyup', function(){
-    var price = $("#item_price").val();
+  $(".price-input").on('keyup', function(){
+    var price = $(".price-input").val();
     if( 300 <= price && price <= 9999999) {
       var fee = Math.floor(price / 10);
       var profit = (price - fee);

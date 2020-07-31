@@ -99,7 +99,13 @@
   flex-wrap: wrap;
 }
 
-.input-birth-wrap>select {
+.input-birth-wrap>.field_with_errors {
+  display: flex;
+  flex-wrap: wrap;
+  }
+
+.input-birth-wrap>select,
+.input-birth-wrap>.field_with_errors> select {
   width: 75px;
   margin-top: 5px;
   height: 45px;
@@ -111,7 +117,8 @@
   cursor: pointer;
 }
 
-.input-birth-wrap>p {
+.input-birth-wrap>p,
+.input-birth-wrap>.field_with_errors> p {
   line-height: 60px;
   padding: 0 5px;
 }
