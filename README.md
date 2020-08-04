@@ -42,10 +42,22 @@ Things you may want to cover:
 |birthday|integer|null: false, unique: true|
 
 
+
 ### Association
 -has_many :comments
--has_many :items
+-has_many :items, through: :users_items
 -has_many :cards
+
+
+## users_itemsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|items_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
+
+## Association
+-belongs_to :item
+-belongs_to :user
 
 
 ## itemsテーブル
@@ -65,9 +77,9 @@ Things you may want to cover:
 
 
 ## Association
--belongs_to :user
 -has_many :items, through: :items_comments
 -has_many :addresses
+-has_many :users, through: :users_items
 
 
 
