@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  has_one_attached :image
+  has_many_attached :images
   belongs_to :user
   has_one :order
   belongs_to_active_hash :category
@@ -10,7 +10,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shipping_day
   with_options presence: true do |s| 
 
-    s.validates :image
+    s.validates :images
     s.validates :name
     s.validates :explanation
     s.validates :category_id,                     numericality: {only_integer: true, other_than: 1}
